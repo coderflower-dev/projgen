@@ -1,5 +1,5 @@
 # projgen
-Generate C++ projects with ease!
+Generate C++ projects with ease! You can easily integrate this program with (for example) a Code editor! Just run this program and all is done!
 
 ## What can this program do?<br>
 + Creates a folder with name of the project<br>
