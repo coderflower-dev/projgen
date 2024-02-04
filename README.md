@@ -23,7 +23,7 @@ Generate C++ projects with ease!
 + Please note that source files (by default) are in the `src` folder
 
 ## How can I use a custom build method?<br>
-Instead of writing `-makefile` or like `-script` you just input the name of the custom build method! <br>
+Instead of writing `-makefile` or like `-script` you just input the path/name of the custom build methdo! <br>
 
 ## Example build method<br>
 `g++ src/^.cpp -o ^ -Iinclude -Llib`<br>
