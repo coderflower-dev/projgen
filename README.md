@@ -1,5 +1,5 @@
 # projgen
-A simple C++ project creation program
+Generate C++ projects with ease!
 
 ## What can this program do?<br>
 + Creates a folder with name of the project<br>
