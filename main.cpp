@@ -40,13 +40,20 @@ int main(int argc, char **argv)
     fs::path libPath = projectPath / "lib";
     fs::path includePath = projectPath / "include";
 
-    //Project Name
+    //Arguments to string
     std::string projectName = std::string(argv[1]);
+    std::string buildName = std::string(argv[2]);
+
+    //-makefile
+    //-batch
+    //-sh
+    //-script
 
     //Base code (Makefile and source)
     std::string codeSample = "#include <iostream>\n\nint main()\n{\n\tstd::cout << \"Hello, World!\";\n\treturn 0;\n}";
     std::string makeSample = "all:\n\tg++ src/" + projectName + ".cpp -o " + projectName + " -Iinclude -Llib\n";
     std::string batchSample = "g++ src/" + projectName + ".cpp -o " + projectName + " -Iinclude -Llib\n";
+    std::string shellSample = "g++ src/" + projectName + ".cpp -o " + projectName + " -Iinclude -Llib\n";
 
     try{
 
@@ -73,11 +80,52 @@ int main(int argc, char **argv)
         codeFile << codeSample;
 
         //Makefile
-        std::string makePath = projectName + "/Makefile";
-        std::ofstream makeFile(makePath);
-        if(makeFile)
-            std::cout << "Makefile created\n\n";
-        makeFile << makeSample;
+        if(buildName == "-makefile")
+        {
+            std::string makePath = projectName + "/Makefile";
+            std::ofstream makeFile(makePath);
+            if(makeFile)
+                std::cout << "Makefile created\n\n";
+            makeFile << makeSample;
+        }
+        //Batch based
+        else if(buildName == "-batch")
+        {
+            std::string batchPath = projectName + "/build.bat";
+            std::ofstream batchFile(batchPath);
+            if(batchFile)
+                std::cout << "Batch building file created\n\n";
+            batchFile << batchSample;
+        }
+        else if(buildName == "-sh")
+        {
+            std::string shPath = projectName + "/build.sh";
+            std::ofstream shFile(shPath);
+            if(shFile)
+                std::cout << "Shell building file created\n\n";
+            shFile << shellSample;
+        }
+        else if(buildName == "-script")
+        {
+            //Unix Shell
+            std::string shPath = projectName + "/build.sh";
+            std::ofstream shFile(shPath);
+            if(shFile)
+                std::cout << "Shell building file created\n";
+            shFile << shellSample;
+
+            
+            //Windows Batch
+            std::string batchPath = projectName + "/build.bat";
+            std::ofstream batchFile(batchPath);
+            if(batchFile)
+                std::cout << "Batch building file created\n\n";
+            batchFile << batchSample;
+        }
+        else
+        {
+            std::cout << "Error! Build method not selected!\n";
+        }
 
 
     } catch (const fs::filesystem_error& e)
