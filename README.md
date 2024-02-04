@@ -5,11 +5,11 @@ Generate C++ projects with ease!
 + Creates a folder with name of the project<br>
 + Creates "include", "lib", and "src"<br>
 + Creates Makefile (and others!) and C++ source file with sample code<br>
-+ Create custom build methods!
++ Allows you to use custom build sample code!
 
-## How to use?<br>
+## How to use this program?<br>
 + First parameter is the project name<br>
-+ Second parameter is the build method (built in), it can be:<br>
++ Second parameter is the build method (built in, check below of how to use custom one), it can be:<br>
   - `-makefile` for Makefile
   - `-sh` for Linux Shell script
   - `-batch` for Windows Console script
