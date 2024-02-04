@@ -21,6 +21,7 @@ Generate C++ projects with ease!
 + Instead of the (for example) `main.cpp` you put `^.cpp`
 + `^` means the name of the project
 + Please note that source files (by default) are in the `src` folder
++ [Video explaning how to do it](https://www.youtube.com/watch?v=76D7_6vsli4&ab_channel=DrFlower)
 
 ## How can I use a custom build method?<br>
 Instead of writing `-makefile` or like `-script` you just input the path/name of the custom build methdo! <br>
