@@ -2,7 +2,7 @@
 A simple C++ project creation program
 
 ## What can this program do?<br>
-+ Creates a folder based on the command-line argument<br>
++ Creates a folder with name of the project<br>
 + Creates "include", "lib", and "src"<br>
 + Creates Makefile (and others!) and C++ source file with sample code<br>
 
