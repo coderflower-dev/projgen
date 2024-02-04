@@ -9,3 +9,7 @@ A simple C++ project creation program
 ## How to use?<br>
 + First parameter is the project name<br>
 + Second parameter is the build method, it can be:<br>
+  - -makefile for Makefile
+  - -sh for Linux Shell script
+  - -batch for Windows Console script
+  - -script for both Windows and Linux build script
