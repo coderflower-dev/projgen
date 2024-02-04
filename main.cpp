@@ -46,7 +46,7 @@ int main(int argc, char **argv)
     //Base code (Makefile and source)
     std::string codeSample = "#include <iostream>\n\nint main()\n{\n\tstd::cout << \"Hello, World!\";\n\treturn 0;\n}";
     std::string makeSample = "all:\n\tg++ " + projectName + ".cpp -o " + projectName + " -Iinclude -Llib\n";
-    std::string batchSample = "g++ " + projectName + ".cpp -o " + projectName + " -Iinclude -Llib\n";
+    std::string batchSample = "g++ src/" + projectName + ".cpp -o " + projectName + " -Iinclude -Llib\n";
 
     try{
 
