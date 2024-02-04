@@ -30,6 +30,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <string>
 #include <filesystem>
 
+#include "parse.h"
+
 int main(int argc, char **argv)
 {
     namespace fs = std::filesystem;
@@ -124,7 +126,13 @@ int main(int argc, char **argv)
         }
         else
         {
-            std::cout << "Error! Build method not selected!\n";
+            std::string customContentsUnparsed = iotos(buildName);
+            std::string customContentsParsed = parse(customContentsUnparsed,projectName);
+            std::string customPath = projectName + "/" + buildName;
+            std::ofstream customFile(customPath);
+            if(customFile)
+                std::cout << "Custom build file created\n\n";
+            customFile << customContentsParsed;
         }
 
 
