@@ -18,6 +18,8 @@ THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS "AS IS" AND ANY EXPRESS
 
 #include "parse.h"
 
+bool customMakefile = false;
+
 int main(int argc, char* argv[])
 {
     namespace fs = std::filesystem;
@@ -42,6 +44,11 @@ int main(int argc, char* argv[])
 
     //Base code (Makefile and source)
     std::string codeSample = "#include <iostream>\n\nint main()\n{\n\tstd::cout << \"Hello, World!\";\n\treturn 0;\n}";
+    if(argc > 2 && argv[3] != nullptr)
+    {
+        customMakefile = true;
+        codeSample = std::string(argv[3]);
+    }
     std::string makeSample = "all:\n\tg++ src/" + projectName + ".cpp -o " + projectName + " -Iinclude -Llib\n";
 
     try{
@@ -69,7 +76,7 @@ int main(int argc, char* argv[])
         codeFile << codeSample;
 
         //Use default makefile
-        if(buildName == "defaultMakefile")
+        if(!customMakefile)
         {
             std::string makePath = projectName + "/Makefile";
             std::ofstream makeFile(makePath);
