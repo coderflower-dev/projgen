@@ -19,8 +19,11 @@ Generate C++ projects with ease!
 + Please note that source files (by default) are in the `src` folder
 + [Video explaning how to do it](https://www.youtube.com/watch?v=76D7_6vsli4&ab_channel=DrFlower) (Note this video is outdated, yet should still work)
 
-## Example build method<br>
+## Example custom Makefile<br>
 `g++ src/^.cpp -o ^ -Iinclude -Llib`<br>
 (`^` means the name of the project)<br>
 So what will be created is (project name is game)<br>
 `g++ src/game.cpp -o game -Iinclude -Llib`<br>
+
+## Sample Makefiles<br>
+These are located at `makefile_sample`
