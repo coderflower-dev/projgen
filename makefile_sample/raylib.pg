@@ -1,1 +1,3 @@
-g++ -o ^ src/^.cpp -Iinclude -Llib -lraylib -lopengl32 -lgdi32 -lwinmm
+CC = g++
+all:
+  $(CC) -o ^ src/^.cpp -Iinclude -Llib -lraylib -lopengl32 -lgdi32 -lwinmm
