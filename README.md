@@ -27,3 +27,7 @@ So what will be created is (project name is game)<br>
 
 ## Sample Makefiles<br>
 These are located at `makefile_sample`
+
+### TODO:
++ Make one big file for custom Makefile and Sample Code
++ Add more .PG sample files
