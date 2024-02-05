@@ -1,2 +1,2 @@
 all:
-	g++ main.cpp -o genproject
+	g++ src/main.cpp -o genproject
