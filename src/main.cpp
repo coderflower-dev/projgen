@@ -36,20 +36,16 @@ int main(int argc, char* argv[])
     fs::path libPath = projectPath / "lib";
     fs::path includePath = projectPath / "include";
 
-
-    //If the second param. is empty, use default makefile
-    std::string buildName = "defaultMakefile";
+    std::string makeSample = "all:\n\tg++ src/" + projectName + ".cpp -o " + projectName + " -Iinclude -Llib\n";
+    
+    //second param
     if(argc > 1 && argv[2] != nullptr)
-        buildName = argv[2];
-
-    //Base code (Makefile and source)
-    std::string codeSample = "#include <iostream>\n\nint main()\n{\n\tstd::cout << \"Hello, World!\";\n\treturn 0;\n}";
-    if(argc > 2 && argv[3] != nullptr)
     {
         customMakefile = true;
-        codeSample = std::string(argv[3]);
+        makeSample = std::string(argv[2]);
     }
-    std::string makeSample = "all:\n\tg++ src/" + projectName + ".cpp -o " + projectName + " -Iinclude -Llib\n";
+
+    std::string codeSample = "#include <iostream>\n\nint main()\n{\n\tstd::cout << \"Hello, World!\";\n\treturn 0;\n}";
 
     try{
 
@@ -86,7 +82,7 @@ int main(int argc, char* argv[])
         }
         else
         {
-            std::string makeCustomUnparsed = iotos(buildName);
+            std::string makeCustomUnparsed = iotos(makeSample);
             std::string makeCustomParsed = parse(makeCustomUnparsed,projectName);
             std::string makeCustomPath = projectName + "/" + "Makefile";
             std::ofstream makeCustomFile(makeCustomPath);
