@@ -22,17 +22,21 @@ int main(int argc, char* argv[])
 {
     namespace fs = std::filesystem;
 
+    //If the first param. is empty, use default name
+    std::string projectName = "ididnotpickone";
+    if(argc > 0 && argv[1] != nullptr)
+        projectName = std::string(argv[1]);
+
+
     //Folders
-    fs::path projectPath = argv[1];
+    fs::path projectPath(projectName);
     fs::path srcPath = projectPath / "src";
     fs::path libPath = projectPath / "lib";
     fs::path includePath = projectPath / "include";
 
-    //Arguments to string
-    std::string projectName = std::string(argv[1]);
-    std::string buildName = "defaultMakefile";
 
-    //Check if ARGV2 is not empty
+    //If the second param. is empty, use default makefile
+    std::string buildName = "defaultMakefile";
     if(argc > 1 && argv[2] != nullptr)
         buildName = argv[2];
 
@@ -42,7 +46,7 @@ int main(int argc, char* argv[])
 
     try{
 
-         if(fs::create_directories(projectPath)) //Main project path
+         if(fs::create_directories(projectName)) //Main project path
          {
             std::cout << "\nProject file created\n";
          }
